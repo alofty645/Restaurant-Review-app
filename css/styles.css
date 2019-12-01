@@ -48,7 +48,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: "Barlow Condensed", sans-serif;
+	font-family: sans-serif;
 	font-weight: 500;
 	margin: 0 0 1em;
 }
@@ -84,7 +84,7 @@ header {
 }
 
 #maincontent {
-	background-color: #1833ab;
+	background-color: lightblue;
 	min-height: 100%;
 }
 #footer {
@@ -118,7 +118,7 @@ nav {
 	justify-content: space-between;
 }
 .logo {
-	color: #1833ab;
+	color: lightblue;
 }
 .logo h1 {
 	font-family: "Montserrat", sans-serif;
@@ -135,7 +135,7 @@ nav {
 	height: 100%;
 }
 .logo:hover {
-	color: #ed1e79;
+	color: black;
 }
 
 /* ====================== Restaurant Filtering ====================== */
@@ -257,16 +257,16 @@ nav {
 	background-color: #fff;
 }
 #restaurants-list a:hover .restaurant-name {
-	color: #ed1e79;
+	color: black;
 }
 
-/* ====================== Cousine Identity ====================== */
+/* Cousine */
 
 .asian {
 	background-color: #f53;
 }
 .american {
-	background-color: #0cf;
+	background-color: rgb(21, 8, 139);
 }
 .mexican {
 	background-color: #0c4;
@@ -288,7 +288,7 @@ nav {
 	color: #f93;
 }
 
-/* ====================== Restaurant Details ====================== */
+/* restaurants */
 .breadcrumbs {
 	background-color: #eee;
 	height: 3em;
@@ -321,7 +321,7 @@ nav {
 	text-decoration: none;
 }
 #breadcrumb li a:hover {
-	color: #ed1e79;
+	color: black;
 }
 
 #restaurant-container,
