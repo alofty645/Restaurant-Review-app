@@ -76,17 +76,17 @@ class DBHelper {
 	}
 
 	/**
-	 * Fetch restaurants by a neighborhood with proper error handling.
+	 * Fetch restaurants by a neighbourhood with proper error handling.
 	 */
-	static fetchRestaurantByNeighborhood(neighborhood, callback) {
+	static fetchRestaurantByneighbourhood(neighbourhood, callback) {
 		// Fetch all restaurants
 		DBHelper.fetchRestaurants((error, restaurants) => {
 			if (error) {
 				callback(error, null);
 			} else {
-				// Filter restaurants to have only given neighborhood
+				// Filter restaurants to have only given neighbourhood
 				const results = restaurants.filter(
-					r => r.neighborhood == neighborhood
+					r => r.neighbourhood == neighbourhood
 				);
 				callback(null, results);
 			}
@@ -94,11 +94,11 @@ class DBHelper {
 	}
 
 	/**
-	 * Fetch restaurants by a cuisine and a neighborhood with proper error handling.
+	 * Fetch restaurants by a cuisine and a neighbourhood with proper error handling.
 	 */
-	static fetchRestaurantByCuisineAndNeighborhood(
+	static fetchRestaurantByCuisineAndneighbourhood(
 		cuisine,
-		neighborhood,
+		neighbourhood,
 		callback
 	) {
 		// Fetch all restaurants
@@ -113,12 +113,12 @@ class DBHelper {
 						r => r.cuisine_type == cuisine
 					);
 				}
-				if (neighborhood != "all") {
-					// filter by neighborhood
+				if (neighbourhood != "all") {
+					// filter by neighbourhood
 					results = results.filter(
 						r =>
-							r.neighborhood ==
-							neighborhood
+							r.neighbourhood ==
+							neighbourhood
 					);
 				}
 				callback(null, results);
@@ -127,23 +127,23 @@ class DBHelper {
 	}
 
 	/**
-	 * Fetch all neighborhoods with proper error handling.
+	 * Fetch all neighbourhoods with proper error handling.
 	 */
-	static fetchNeighborhoods(callback) {
+	static fetchneighbourhoods(callback) {
 		// Fetch all restaurants
 		DBHelper.fetchRestaurants((error, restaurants) => {
 			if (error) {
 				callback(error, null);
 			} else {
-				// Get all neighborhoods from all restaurants
-				const neighborhoods = restaurants.map(
-					(v, i) => restaurants[i].neighborhood
+				// Get all neighbourhoods from all restaurants
+				const neighbourhoods = restaurants.map(
+					(v, i) => restaurants[i].neighbourhood
 				);
-				// Remove duplicates from neighborhoods
-				const uniqueNeighborhoods = neighborhoods.filter(
-					(v, i) => neighborhoods.indexOf(v) == i
+				// Remove duplicates from neighbourhoods
+				const uniqueneighbourhoods = neighbourhoods.filter(
+					(v, i) => neighbourhoods.indexOf(v) == i
 				);
-				callback(null, uniqueNeighborhoods);
+				callback(null, uniqueneighbourhoods);
 			}
 		});
 	}

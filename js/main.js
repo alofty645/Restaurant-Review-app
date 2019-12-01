@@ -1,9 +1,9 @@
-let restaurants, neighborhoods, cuisines;
+let restaurants, neighbourhoods, cuisines;
 var newMap;
 var markers = [];
 
 /**
- * Fetch neighborhoods and cuisines as soon as the page is loaded.
+ * Fetch neighbourhoods and cuisines as soon as the page is loaded.
  */
 document.addEventListener("DOMContentLoaded", event => {
 	if ("serviceWorker" in navigator) {
@@ -26,34 +26,34 @@ document.addEventListener("DOMContentLoaded", event => {
 	}
 
 	initMap(); // added
-	fetchNeighborhoods();
+	fetchneighbourhoods();
 	fetchCuisines();
 });
 
 /**
- * Fetch all neighborhoods and set their HTML.
+ * Fetch all neighbourhoods and set their HTML.
  */
-fetchNeighborhoods = () => {
-	DBHelper.fetchNeighborhoods((error, neighborhoods) => {
+fetchneighbourhoods = () => {
+	DBHelper.fetchneighbourhoods((error, neighbourhoods) => {
 		if (error) {
 			// Got an error
 			console.error(error);
 		} else {
-			self.neighborhoods = neighborhoods;
-			fillNeighborhoodsHTML();
+			self.neighbourhoods = neighbourhoods;
+			fillneighbourhoodsHTML();
 		}
 	});
 };
 
 /**
- * Set neighborhoods HTML.
+ * Set neighbourhoods HTML.
  */
-fillNeighborhoodsHTML = (neighborhoods = self.neighborhoods) => {
-	const select = document.getElementById("neighborhoods-select");
-	neighborhoods.forEach(neighborhood => {
+fillneighbourhoodsHTML = (neighbourhoods = self.neighbourhoods) => {
+	const select = document.getElementById("neighbourhoods-select");
+	neighbourhoods.forEach(neighbourhood => {
 		const option = document.createElement("option");
-		option.innerHTML = neighborhood;
-		option.value = neighborhood;
+		option.innerHTML = neighbourhood;
+		option.value = neighbourhood;
 		select.append(option);
 	});
 };
@@ -119,17 +119,17 @@ initMap = () => {
  */
 updateRestaurants = () => {
 	const cSelect = document.getElementById("cuisines-select");
-	const nSelect = document.getElementById("neighborhoods-select");
+	const nSelect = document.getElementById("neighbourhoods-select");
 
 	const cIndex = cSelect.selectedIndex;
 	const nIndex = nSelect.selectedIndex;
 
 	const cuisine = cSelect[cIndex].value;
-	const neighborhood = nSelect[nIndex].value;
+	const neighbourhood = nSelect[nIndex].value;
 
-	DBHelper.fetchRestaurantByCuisineAndNeighborhood(
+	DBHelper.fetchRestaurantByCuisineAndneighbourhood(
 		cuisine,
-		neighborhood,
+		neighbourhood,
 		(error, restaurants) => {
 			if (error) {
 				// Got an error!
@@ -183,7 +183,7 @@ createRestaurantHTML = restaurant => {
 		"Details of " +
 			restaurant.name +
 			" restaurant, " +
-			restaurant.neighborhood
+			restaurant.neighbourhood
 	);
 	link.tabIndex = "0";
 	li.append(link);
@@ -203,9 +203,9 @@ createRestaurantHTML = restaurant => {
 	name.innerHTML = restaurant.name;
 	label.append(name);
 
-	const neighborhood = document.createElement("p");
-	neighborhood.innerHTML = restaurant.neighborhood;
-	label.append(neighborhood);
+	const neighbourhood = document.createElement("p");
+	neighbourhood.innerHTML = restaurant.neighbourhood;
+	label.append(neighbourhood);
 
 	const address = document.createElement("p");
 	address.className = "restaurant-address";

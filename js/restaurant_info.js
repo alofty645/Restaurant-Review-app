@@ -96,7 +96,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
 	// image.tabIndex = '2';
 
 	const location = document.getElementById("restaurant-location");
-	location.innerHTML = restaurant.neighborhood;
+	location.innerHTML = restaurant.neighbourhood;
 
 	const address = document.getElementById("restaurant-address");
 	address.innerHTML = restaurant.address;
@@ -105,7 +105,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
 		"Address: " +
 			restaurant.address +
 			", " +
-			restaurant.neighborhood
+			restaurant.neighbourhood
 	);
 
 	const cuisine = document.getElementById("restaurant-cuisine");
