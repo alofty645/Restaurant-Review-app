@@ -89,6 +89,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
 	image.style.backgroundImage = `url('${DBHelper.imageUrlForRestaurant(
 		restaurant
 	)}')`;
+	image.alt = restaurant.name + "Restaurant";
 	image.setAttribute(
 		"aria-label",
 		"Image " + restaurant.name + " restaurant, "
