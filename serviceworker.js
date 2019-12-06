@@ -1,4 +1,4 @@
-const staticCacheName = "review-cache-v1";
+const statCacheName = "review-cache-v1";
 const assets = [
 	"./",
 	"index.html",
@@ -28,14 +28,14 @@ const assets = [
 	"./img/8.jpg",
 	"./img/9.jpg",
 	"./img/10.jpg",
-	"./img/favicon.png",
+	"./img/favicon.jfif",
 	"https://fonts.googleapis.com/css?family=Barlow+Condensed:300,400,500,600",
 	"https://fonts.googleapis.com/css?family=Montserrat:600"
 ];
 
 self.addEventListener("install", function(event) {
 	event.waitUntil(
-		caches.open(staticCacheName).then(cache => {
+		caches.open(statCacheName).then(cache => {
 			return cache.addAll(assets);
 		})
 	);
@@ -52,7 +52,7 @@ self.addEventListener("activate", function(event) {
 								"review-"
 							) &&
 							cacheName !=
-								staticCacheName
+								statCacheName
 						);
 					})
 					.map(function(cacheName) {

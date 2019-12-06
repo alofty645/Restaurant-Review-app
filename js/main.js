@@ -8,7 +8,7 @@ var markers = [];
 document.addEventListener("DOMContentLoaded", event => {
 	if ("serviceWorker" in navigator) {
 		navigator.serviceWorker
-			.register("./sw.js")
+			.register("../serviceworker.js")
 			.then(registration => {
 				// Registration was successful
 				console.log(
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", event => {
 			});
 	}
 
-	initMap(); // added
+	initMap();
 	fetchneighbourhoods();
 	fetchCuisines();
 });
